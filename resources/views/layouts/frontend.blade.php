@@ -901,6 +901,224 @@
                 border-radius: 12px;
             }
         }
+
+        .profile-wrapper {
+            position: relative;
+        }
+
+        .profile-trigger {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            cursor: pointer;
+            padding: 6px 12px;
+            border-radius: 24px;
+            border: 1px solid rgba(196, 154, 42, 0.3);
+            transition: background 0.2s;
+        }
+
+        .profile-trigger:hover {
+            background: rgba(196, 154, 42, 0.08);
+        }
+
+        .avatar-sm {
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            background: #C49A2A;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 13px;
+            font-weight: 600;
+            color: #fff;
+            overflow: hidden;
+            flex-shrink: 0;
+        }
+
+        .avatar-sm img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .profile-name {
+            font-size: 13px;
+            color: #C49A2A;
+            font-weight: 600;
+        }
+
+        .chevron {
+            width: 14px;
+            height: 14px;
+            color: rgba(196, 154, 42, 0.6);
+            transition: transform 0.2s;
+        }
+
+        .profile-wrapper.open .chevron {
+            transform: rotate(180deg);
+        }
+
+        .dropdown-profil {
+            position: absolute;
+            right: 0;
+            top: calc(100% + 10px);
+            width: 256px;
+            background: #1a1a1a;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 14px;
+            overflow: hidden;
+            opacity: 0;
+            pointer-events: none;
+            transform: translateY(-6px);
+            transition: opacity 0.18s, transform 0.18s;
+            z-index: 9999;
+        }
+
+        .profile-wrapper.open .dropdown-profil {
+            opacity: 1;
+            pointer-events: all;
+            transform: translateY(0);
+        }
+
+        .dp-header {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 16px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+        }
+
+        .avatar-lg {
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            background: #C49A2A;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 16px;
+            font-weight: 600;
+            color: #fff;
+            overflow: hidden;
+            flex-shrink: 0;
+            border: 2px solid rgba(196, 154, 42, 0.4);
+        }
+
+        .avatar-lg img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .dp-userinfo {
+            flex: 1;
+            min-width: 0;
+        }
+
+        .dp-nama {
+            font-size: 14px;
+            font-weight: 600;
+            color: #fff;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .dp-email {
+            font-size: 12px;
+            color: rgba(255, 255, 255, 0.4);
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            margin-top: 2px;
+        }
+
+        .dp-badge {
+            display: inline-block;
+            margin-top: 5px;
+            font-size: 10px;
+            font-weight: 600;
+            padding: 2px 8px;
+            border-radius: 20px;
+            background: rgba(196, 154, 42, 0.15);
+            color: #C49A2A;
+            letter-spacing: 0.06em;
+            text-transform: capitalize;
+            border: 1px solid rgba(196, 154, 42, 0.3);
+        }
+
+        .dp-section {
+            padding: 8px 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+        }
+
+        .dropdown-profil a,
+        .dropdown-profil a:hover,
+        .dropdown-profil a:focus {
+            text-decoration: none;
+        }
+
+        .dp-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 9px 16px;
+            font-size: 13px;
+            color: rgba(255, 255, 255, 0.65);
+            text-decoration: none;
+            transition: background 0.15s, color 0.15s;
+        }
+
+        .dp-item svg {
+            width: 15px;
+            height: 15px;
+            flex-shrink: 0;
+            opacity: 0.6;
+        }
+
+        .dp-item:hover {
+            background: rgba(196, 154, 42, 0.08);
+            color: #C49A2A;
+        }
+
+        .dp-item:hover svg {
+            opacity: 1;
+        }
+
+        .dp-arrow {
+            margin-left: auto;
+            opacity: 0.3;
+            font-size: 12px;
+        }
+
+        .dp-footer {
+            padding: 8px 0;
+        }
+
+        .dp-logout {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding: 9px 16px;
+            font-size: 13px;
+            color: #E24B4A;
+            background: none;
+            border: none;
+            width: 100%;
+            cursor: pointer;
+            transition: background 0.15s;
+        }
+
+        .dp-logout:hover {
+            background: rgba(226, 75, 74, 0.08);
+        }
+
+        .dp-logout svg {
+            width: 15px;
+            height: 15px;
+            flex-shrink: 0;
+        }
     </style>
 </head>
 
@@ -918,41 +1136,112 @@
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item">
                         <a class="nav-link {{ (isset($key) && $key == 'beranda') ? 'active' : '' }}"
-                            href="{{ route('landing.beranda') }}">
+                            href="{{ route('pelanggan.beranda') }}">
                             Beranda
                         </a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link {{ (isset($key) && $key == 'tentang') ? 'active' : '' }}"
-                            href="{{ route('landing.tentang') }}">
+                            href="{{ route('pelanggan.tentang') }}">
                             Tentang Kami
                         </a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link {{ (Request::is('produk*')) ? 'active' : '' }}"
-                            href="{{ route('landing.produk.jualbeli') }}">
+                            href="{{ route('pelanggan.produk.jualbeli') }}">
                             Produk
                         </a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link {{ (isset($key) && $key == 'artikel') ? 'active' : '' }}"
-                            href="{{ route('landing.artikel') }}">
+                            href="{{ route('pelanggan.artikel') }}">
                             Artikel
                         </a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link {{ (isset($key) && $key == 'kontak') ? 'active' : '' }}"
-                            href="{{ route('landing.kontak') }}">
+                            href="{{ route('pelanggan.kontak') }}">
                             Kontak
                         </a>
                     </li>
                 </ul>
                 <ul class="navbar-nav">
-                    <li class="nav-item ml-2">
-                        <a href="{{ route('login') }}" class="btn btn-sm px-4"
-                            style="background-color: var(--gold-primary); color: white; border-radius: 20px; font-weight: 600;">
-                            Masuk
-                        </a>
+                    <li class="nav-item">
+                        @guest
+                            <a href="{{ route('login') }}" class="btn-masuk">Masuk</a>
+                        @else
+                            <div class="profile-wrapper" id="profileWrapper">
+                                <div class="profile-trigger" id="profileTrigger">
+                                    <div class="avatar-sm">
+                                        @if(Auth::user()->foto_profil)
+                                            <img src="{{ asset('storage/' . Auth::user()->foto_profil) }}" alt="foto profil">
+                                        @else
+                                            {{ strtoupper(substr(Auth::user()->username, 0, 1)) }}
+                                        @endif
+                                    </div>
+                                    <span class="profile-name">{{ Auth::user()->username }}</span>
+                                    <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                        stroke-width="2">
+                                        <polyline points="6 9 12 15 18 9" />
+                                    </svg>
+                                </div>
+
+                                <div class="dropdown-profil">
+                                    {{-- Header --}}
+                                    <div class="dp-header">
+                                        <div class="avatar-lg">
+                                            @if(Auth::user()->foto_profil)
+                                                <img src="{{ asset('storage/' . Auth::user()->foto_profil) }}"
+                                                    alt="foto profil">
+                                            @else
+                                                {{ strtoupper(substr(Auth::user()->username, 0, 1)) }}
+                                            @endif
+                                        </div>
+                                        <div class="dp-userinfo">
+                                            <div class="dp-nama">{{ Auth::user()->nama_lengkap ?? Auth::user()->username }}
+                                            </div>
+                                            <div class="dp-email">{{ Auth::user()->email }}</div>
+                                        </div>
+                                    </div>
+
+                                    {{-- Menu --}}
+                                    <div class="dp-section">
+                                        <a href="#" class="dp-item">
+                                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                                                <circle cx="12" cy="8" r="4" />
+                                                <path d="M4 20c0-4 3.6-7 8-7s8 3 8 7" />
+                                            </svg>
+                                            Profil saya
+                                            <span class="dp-arrow">›</span>
+                                        </a>
+                                        <a href="#" class="dp-item">
+                                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                                                <path d="M6 2h12l3 7H3L6 2z" />
+                                                <path d="M3 9v11a2 2 0 002 2h14a2 2 0 002-2V9" />
+                                            </svg>
+                                            Pesanan saya
+                                            <span class="dp-arrow">›</span>
+                                        </a>
+                                    </div>
+
+                                    {{-- Logout --}}
+                                    <div class="dp-footer">
+                                        <form action="{{ route('logout') }}" method="POST">
+                                            @csrf
+                                            <button type="submit" class="dp-logout">
+                                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                                                    stroke-width="1.8">
+                                                    <path d="M9 21H5a2 2 0 01-2-2V5a2 2 0 012-2h4" />
+                                                    <polyline points="16 17 21 12 16 7" />
+                                                    <line x1="21" y1="12" x2="9" y2="12" />
+                                                </svg>
+                                                Keluar
+                                            </button>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        @endguest
                     </li>
                 </ul>
             </div>
@@ -986,31 +1275,31 @@
                     <ul class="footer-list">
                         <li class="nav-item">
                             <a class="footer-link {{ (isset($key) && $key == 'beranda') ? 'active' : '' }}"
-                                href="{{ route('landing.beranda') }}">
+                                href="{{ route('pelanggan.beranda') }}">
                                 Beranda
                             </a>
                         </li>
                         <li class="nav-item">
                             <a class="footer-link {{ (isset($key) && $key == 'tentang') ? 'active' : '' }}"
-                                href="{{ route('landing.tentang') }}">
+                                href="{{ route('pelanggan.tentang') }}">
                                 Tentang Kami
                             </a>
                         </li>
                         <li class="nav-item">
                             <a class="footer-link {{ (isset($key) && $key == 'produk') ? 'active' : '' }}"
-                                href="{{ route('landing.produk.jualbeli') }}">
+                                href="{{ route('pelanggan.produk.jualbeli') }}">
                                 Produk
                             </a>
                         </li>
                         <li class="nav-item">
                             <a class="footer-link {{ (isset($key) && $key == 'artikel') ? 'active' : '' }}"
-                                href="{{ route('landing.artikel') }}">
+                                href="{{ route('pelanggan.artikel') }}">
                                 Artikel
                             </a>
                         </li>
                         <li class="nav-item">
                             <a class="footer-link {{ (isset($key) && $key == 'kontak') ? 'active' : '' }}"
-                                href="{{ route('landing.kontak') }}">
+                                href="{{ route('pelanggan.kontak') }}">
                                 Kontak
                             </a>
                         </li>
@@ -1021,10 +1310,10 @@
                     <h5 class="footer-title">Produk</h5>
                     <ul class="footer-list">
                         <li>
-                            <a href="{{ route('landing.produk.jualbeli') }}" class="footer-link">Jual Beli</a>
+                            <a href="{{ route('pelanggan.produk.jualbeli') }}" class="footer-link">Jual Beli</a>
                         </li>
                         <li>
-                            <a href="{{ route('landing.produk.service') }}" class="footer-link">Servis</a>
+                            <a href="{{ route('pelanggan.produk.service') }}" class="footer-link">Servis</a>
                         </li>
                     </ul>
                 </div>
@@ -1164,6 +1453,15 @@
                 e.preventDefault();
             });
         });
+    </script>
+    <script>
+        const wrapper = document.getElementById('profileWrapper');
+        const trigger = document.getElementById('profileTrigger');
+        trigger.addEventListener('click', (e) => {
+            e.stopPropagation();
+            wrapper.classList.toggle('open');
+        });
+        document.addEventListener('click', () => wrapper.classList.remove('open'));
     </script>
 </body>
 

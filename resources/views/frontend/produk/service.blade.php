@@ -1,4 +1,4 @@
-@extends('frontend.public.produk')
+@extends('frontend.produk')
 
 @section('title', 'Service Brankas Cilacap | CV Unggul Rejeki')
 @section('meta_description', 'Layanan service brankas di Cilacap meliputi relokasi, perbaikan, pemasangan, dan service ATM oleh tenaga profesional CV Unggul Rejeki.')

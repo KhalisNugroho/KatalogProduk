@@ -8,21 +8,21 @@ class FrontendController extends Controller
 {
     public function beranda()
     {
-        return view('frontend.public.beranda', [
+        return view('frontend.beranda', [
             'key' => 'beranda'
         ]);
     }
 
     public function tentang()
     {
-        return view('frontend.public.tentang', [
+        return view('frontend.tentang', [
             'key' => 'tentang'
         ]);
     }
 
     public function produk()
     {
-        return view('frontend.public.produk', [
+        return view('frontend.produk', [
             'key' => 'produk'
         ]);
     }
@@ -39,7 +39,7 @@ class FrontendController extends Controller
 
     public function artikel()
     {
-        return view('frontend.public.artikel', [
+        return view('frontend.artikel', [
             'key' => 'artikel'
         ]);
     }
@@ -65,8 +65,22 @@ class FrontendController extends Controller
 
     public function kontak()
     {
-        return view('frontend.public.kontak', [
+        return view('frontend.kontak', [
             'key' => 'kontak'
+        ]);
+    }
+
+    public function dashboard()
+    {
+        return view('frontend.dashboard', [
+            'key' => 'dashboard'
+        ]);
+    }
+
+    public function pesanan()
+    {
+        return view('frontend.pesanan', [
+            'key' => 'pesanan'
         ]);
     }
 }

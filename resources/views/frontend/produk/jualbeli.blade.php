@@ -1,4 +1,4 @@
-@extends('frontend.public.produk')
+@extends('frontend.produk')
 
 @section('title', 'Jual Brankas Bekas & Baru di Cilacap | CV Unggul Rejeki')
 @section('meta_description', 'Jual brankas bekas dan baru di Cilacap. Tersedia berbagai ukuran, kualitas terjamin, dan layanan service brankas terpercaya.')
